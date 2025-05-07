@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Balaji42003.github.io/B",
+  "homepage": "https://balaji42003.github.io/B",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
