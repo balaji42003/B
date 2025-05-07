@@ -31,7 +31,7 @@ function App() {
         <Navbar />
         <main className="main-content">
           <Routes>
-            <Route path="/" element={
+            <Route path="/B/" element={
               <>
                 <Hero />
                 <About />
