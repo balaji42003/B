@@ -5,7 +5,7 @@
     right: 0;
     z-index: 1000;
     height: 80px; /* Fixed height for navbar */
-    background: rgba(255, 255, 255, 0.95);
+    background: #005F73;
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 20px 0;
@@ -13,7 +13,7 @@
 }
 
 .navbar.scrolled {
-    background-color: #ffffff;
+    background-color:  #005F73;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
 }
@@ -69,7 +69,7 @@
 
 .navbar-scrolled {
     padding: 1rem 0;
-    background: rgba(255, 255, 255, 0.95);
+    background:   #ffffff;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }

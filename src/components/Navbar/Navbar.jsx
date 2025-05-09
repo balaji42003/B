@@ -40,7 +40,14 @@ const NavigationBar = () => {
         className={`custom-navbar ${scrolled ? 'navbar-scrolled' : ''}`}
       >
         <Container>
-          <Navbar.Brand as={Link} to="/">FrugalTrail</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            <img 
+              src="/src/assets/logo.png" 
+              alt="FrugalTrail Logo" 
+              className="navbar-logo" 
+              style={{ height: '140px', width: 'auto' }} 
+            />
+          </Navbar.Brand>
           <Navbar.Toggle 
             aria-controls="basic-navbar-nav" 
             className="custom-toggler"
@@ -58,8 +65,7 @@ const NavigationBar = () => {
                 </Nav.Link>
               ))}
               <Nav.Link className="nav-button">Book Now</Nav.Link>
-              <Nav.Link className="nav-button" onClick={handleLoginClick}>Login</Nav.Link>
-              <Nav.Link className="nav-button signup-btn" onClick={handleSignupClick}>Sign Up</Nav.Link>
+             
             </Nav>
           </Navbar.Collapse>
         </Container>

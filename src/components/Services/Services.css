@@ -88,6 +88,44 @@
     transform: translateY(0);
 }
 
+.btn-transparent {
+    position: relative;
+    padding: 10px 20px;
+}
+
+.btn-transparent:hover {
+    transform: translateY(-2px);
+}
+
+.btn-transparent::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #005F73;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.btn-transparent:hover::after {
+    width: 80%;
+}
+
+.bi-chevron-down,
+.bi-chevron-up {
+    transition: transform 0.3s ease;
+}
+
+.btn-transparent:hover .bi-chevron-down {
+    transform: translateY(3px);
+}
+
+.btn-transparent:hover .bi-chevron-up {
+    transform: translateY(-3px);
+}
+
 @keyframes fadeUp {
     from {
         opacity: 0;

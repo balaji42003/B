@@ -24,6 +24,8 @@
     overflow: hidden;
     animation: fadeInUp 0.5s ease forwards;
     animation-fill-mode: both;
+    min-height: 450px;
+    height: auto;
 }
 
 .testimonial-card:hover {
@@ -81,12 +83,44 @@
     opacity: 0.2;
 }
 
+.testimonial-content {
+    position: relative;
+    height: 100%;
+}
+
 .testimonial-text {
     font-style: italic;
     color: #666;
     line-height: 1.8;
     font-size: 1rem;
+    position: relative;
+    max-height: 180px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    transition: max-height 0.5s ease;
 }
+
+.testimonial-text:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(transparent, white);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-text.expanded {
+    max-height: 1000px;
+}
+
+.testimonial-text.expanded:after {
+    opacity: 0;
+}
+
+
 
 .rating {
     display: flex;
@@ -232,3 +266,4 @@
         transform: translateY(0);
     }
 }
+

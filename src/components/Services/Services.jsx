@@ -1,37 +1,98 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import './Services.css';
 
 const Services = () => {
+  const [showAll, setShowAll] = useState(false);
+  const servicesRef = useRef(null);
+
   const services = [
     {
-      icon: "✈️",
-      title: "Flight Bookings",
-      description: "International & domestic flights at best prices",
-      features: ["24/7 Support", "Price Match", "Flexible Booking"]
+      icon: "🌍",
+      title: "International Trip Planning",
+      description: "Personalized itineraries across Europe, Southeast Asia & more.",
+      features: ["Custom day-wise plans based on your goals", "Assistance with flight & hotel coordination", "Suggestions within your budget"]
     },
     {
-      icon: "🏨",
-      title: "Luxury Stays",
-      description: "Handpicked hotels and resorts worldwide",
-      features: ["5-Star Rated", "Best Locations", "Premium Service"]
+      icon: "🏔️",
+      title: "Domestic Travel Coordination",
+      description: "Help with travel plans across India — from Himachal to Kerala.",
+      features: ["Budget-focused options and local experiences", "Destination and itinerary suggestions", "Local transport ideas and tips"]
     },
     {
-      icon: "🎯",
-      title: "Custom Tours",
-      description: "Personalized itineraries just for you",
-      features: ["Local Guides", "Unique Experiences", "Flexible Plans"]
+      icon: "🛂",
+      title: "Visa Application Guidance",
+      description: "We simplify visa paperwork and process.",
+      features: ["Cover letter & itinerary drafts", "Documentation checklist and review", "Specific help for Schengen, Singapore, etc."]
     },
     {
-      icon: "🚗",
-      title: "Transportation",
-      description: "Comfortable and reliable transport services",
-      features: ["Airport Pickup", "City Tours", "Private Vehicles"]
+      icon: "✈️🏨",
+      title: "Hotel & Flight Booking Coordination",
+      description: "We help you book smart — with your own card.",
+      features: ["Suggest best-value hotels and flights", "Share exact booking links", "You remain in control of payments"]
+    },
+    {
+      icon: "👨‍👩‍👧‍👦",
+      title: "Group & Family Travel Planning",
+      description: "Trips planned for 3 to 15 people without confusion.",
+      features: ["Shared itinerary docs for everyone", "Common activity planning", "Simple coordination across families"]
+    },
+    {
+      icon: "💑",
+      title: "Honeymoon / Couple Itinerary Support",
+      description: "Not a 'package' — a plan based on your vibe.",
+      features: ["Peaceful, scenic, or adventurous? You decide", "Matching destinations to mood and budget", "Focus on comfort, privacy, and ease"]
+    },
+    {
+      icon: "🚕",
+      title: "Local Transport Planning",
+      description: "Getting around made simple.",
+      features: ["Cab/van suggestions", "Local pass tips (metro, MRT, etc.)", "Route plans with time estimates"]
+    },
+    {
+      icon: "💰",
+      title: "Budget Optimization & Destination Suggestion",
+      description: "Tell us your budget — we suggest where to go.",
+      features: ["Clear answers: What's possible within your budget", "Alternatives if your choice exceeds your budget", "Honest feedback, no false promises"]
+    },
+    {
+      icon: "📘",
+      title: "Passport Application / Renewal Support",
+      description: "Help with new passport or renewing your old one.",
+      features: ["Process explanation", "Checklist of documents", "Online form guidance"]
     }
-  ];
+];
+
+  const displayedServices = showAll ? services : services.slice(0, 4);
+
+  const handleShowToggle = () => {
+    setShowAll(!showAll);
+    if (showAll) {
+      // When showing less, scroll back to services section with offset for navbar
+      servicesRef.current?.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      // Add offset for fixed navbar
+      setTimeout(() => {
+        window.scrollBy({
+          top: -80,
+          behavior: 'smooth'
+        });
+      }, 500);
+    } else {
+      // When showing more, scroll down slightly
+      setTimeout(() => {
+        window.scrollBy({
+          top: 100,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
+  };
 
   return (
-    <section className="services py-5">
+    <section className="services py-5" ref={servicesRef}>
       <div className="services-pattern"></div>
       <Container>
         <div className="text-center mb-5" data-aos="fade-up">
@@ -41,7 +102,7 @@ const Services = () => {
         </div>
 
         <Row>
-          {services.map((service, index) => (
+          {displayedServices.map((service, index) => (
             <Col lg={3} md={6} key={index} className="mb-4">
               <Card 
                 className="service-card h-100 border-0"
@@ -70,6 +131,34 @@ const Services = () => {
             </Col>
           ))}
         </Row>
+
+        <div className="text-center mt-4">
+          <button 
+            className="btn btn-transparent"
+            onClick={handleShowToggle}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#005F73',
+              fontSize: '1.1rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              margin: '0 auto',
+              transition: 'transform 0.3s ease'
+            }}
+          >
+            {showAll ? (
+              <>
+                Show Less <i className="bi bi-chevron-up ms-2"></i>
+              </>
+            ) : (
+              <>
+                Show More <i className="bi bi-chevron-down ms-2"></i>
+              </>
+            )}
+          </button>
+        </div>
       </Container>
     </section>
   );

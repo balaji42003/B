@@ -36,7 +36,7 @@ function App() {
                 <Hero />
                 <About />
                 <Services />
-                <Testimonials />
+                <Testimonials /> 
                 <Blog />
                 <Contact />
               </>
