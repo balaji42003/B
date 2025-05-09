@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './Hero.css';
+import nature_trip_1 from '../../assets/nature_trip_1.jpg';
+import nature_trip_2 from '../../assets/nature_trip_3.jpg';
+import nature_trip_3 from '../../assets/nature_travel_8.jpg';
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const location = useLocation();
   
   const images = [
-    '/src/assets/nature_trip_1.jpg',
-    '/src/assets/nature_trip_3.jpg',
-    '/src/assets/nature_travel_6.jpg',
-    '/src/assets/nature_travel_7.jpg',
-    '/src/assets/nature_travel_8.jpg'
+    nature_trip_1,
+    nature_trip_2,
+    nature_trip_3
   ];
 
   useEffect(() => {
