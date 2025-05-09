@@ -5,6 +5,7 @@ import Login from '../Auth/Login';
 import Signup from '../Auth/Signup';
 import '../../styles/animations.css';
 import './Navbar.css';
+import logo from '../../assets/logo.png';
 
 const NavigationBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -42,7 +43,7 @@ const NavigationBar = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">
             <img 
-              src="/src/assets/logo.png" 
+              src={logo} 
               alt="FrugalTrail Logo" 
               className="navbar-logo" 
               style={{ height: '140px', width: 'auto' }} 
